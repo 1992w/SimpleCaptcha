@@ -41,7 +41,7 @@ namespace SimpleCaptcha.Demo.Controllers
         {
             var info = _captcha.Generate(id);
             var stream = new MemoryStream(info.CaptchaByteData);
-            return File(stream, "img/png");
+            return File(stream, "image/png");
         }
 
         public IActionResult Validate(string id, string code)
