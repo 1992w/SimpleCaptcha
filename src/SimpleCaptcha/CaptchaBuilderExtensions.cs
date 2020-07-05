@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
+﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+using SimpleCaptcha;
 using SimpleCaptcha.Storage;
 using System;
 
-namespace SimpleCaptcha.Extensions
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class CaptchaBuilderExtensions
     {

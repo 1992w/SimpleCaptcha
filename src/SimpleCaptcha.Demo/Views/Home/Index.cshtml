@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div><input type="text" id="txtCaptcha" /><img id="imgCaptcha" src="/Home/Captcha?id=12345"/><a href="javascript:void(0);" id="changeImg" >换一张</a></div>
+    <div><button type="button" id="btnValidate">验证</button></div>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@section Scripts{ 
+
+<script>
+    $(function () {
+        var $imgCaptcha = $('#imgCaptcha')
+
+        $('#changeImg').on('click', function () {
+            $imgCaptcha.attr('src', '/Home/Captcha?id=12345&time='+new Date().getTime())
+        })
+
+        $('#btnValidate').on('click', function () {
+            var code = $('#txtCaptcha').val()
+            $.ajax('/Home/Validate?id=12345&code=' + code, {
+                dataType: "JSON",
+                success: function (result) {
+                    if (result.success) {
+                        alert('验证码输入正确')
+                    } else {
+                        alert('验证码输入错误')
+                    }
+                }
+            })
+        })
+    })
+</script>
+}
