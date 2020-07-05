@@ -27,7 +27,8 @@ namespace SimpleCaptcha
         public bool Validate(string captchaId, string code)
         {
             var val = _storage.Get(captchaId);
-            var result = !string.IsNullOrWhiteSpace(val) && val == code;
+            var comparisonType = _options.CurrentValue.IgnoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture;
+            var result = string.Equals(val, code, comparisonType);
             if (result)
             {
                 _storage.Remove(captchaId);

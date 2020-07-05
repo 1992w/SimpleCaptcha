@@ -16,5 +16,7 @@ namespace SimpleCaptcha
         public int ImageHeight { get; set; } = 36;
 
         public TimeSpan ExpiryTime { get; set; } = TimeSpan.FromMinutes(5);
+
+        public bool IgnoreCase { get; set; } = true;
     }
 }
