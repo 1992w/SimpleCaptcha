@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SimpleCaptcha\SimpleCaptcha.csproj" />
+    <PackageReference Include="SimpleCaptcha" Version="1.0.0" />
   </ItemGroup>
 
 
